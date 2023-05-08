@@ -18,8 +18,7 @@ const app =  Vue.createApp({
     data() {
         return {
             timer: null,
-            // stoptime: clearTimeout(showNextSlide, 1000),
-            varBooleana: true,
+            timerRunning: false,
             activeIndex: 0,
             arrImages: [
                 
@@ -43,15 +42,17 @@ const app =  Vue.createApp({
 
         StopSlide() {
             clearInterval(this.timer);
-              
+            this.timerRunning = false;
         },
 		StartSlide() {
-            this.timer = setInterval(this.showNextSlide, 1000);
+            
+           if (!this.timerRunning) {
+             this.timer = setInterval(this.showNextSlide, 1000);
+             this.timerRunning = true;
+           }
+            
           
 		},
-   
-
-
         showPrevSlide(){
             this.activeIndex--;
             if (this.activeIndex < 0) {
