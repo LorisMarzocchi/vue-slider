@@ -13,7 +13,7 @@ Consigli del giorno:
 
 const app =  Vue.createApp({
     mounted() {
-        this.pointerIn();
+        // this.StartSlide();
     },
     data() {
         return {
@@ -39,24 +39,17 @@ const app =  Vue.createApp({
 			this.activeIndex = i;
 		},
 
-        pointerIn() {
+        // interval btn
+
+        StopSlide() {
             clearInterval(this.timer);
-            console.log('pointer in');
               
         },
-		pointerOut() {
+		StartSlide() {
             this.timer = setInterval(this.showNextSlide, 1000);
-            console.log('pointer out');
+          
 		},
-// interval btn
-        // StartSlide(){
-
-        //     this.inervalTimer = setInterval(this.showNextSlide, 1000);
-        // },
-        // StopSlide(){
-
-        //     clearInterval(this.inervalTimer);
-        // },
+   
 
 
         showPrevSlide(){
@@ -76,4 +69,4 @@ const app =  Vue.createApp({
 
 
 });
-app.mount('.carousel');
+app.mount('.container');
