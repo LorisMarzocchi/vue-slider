@@ -12,9 +12,12 @@ Consigli del giorno:
 
 
 const app =  Vue.createApp({
+    mounted() {
+        this.pointerIn();
+    },
     data() {
         return {
-            inervalTimer: setInterval(this.showNextSlide, 1000),
+            timer: null,
             // stoptime: clearTimeout(showNextSlide, 1000),
             varBooleana: true,
             activeIndex: 0,
@@ -35,15 +38,25 @@ const app =  Vue.createApp({
         imgClick(i){
 			this.activeIndex = i;
 		},
+
+        pointerIn() {
+            clearInterval(this.timer);
+            console.log('pointer in');
+              
+        },
+		pointerOut() {
+            this.timer = setInterval(this.showNextSlide, 1000);
+            console.log('pointer out');
+		},
 // interval btn
-        StartSlide(){
+        // StartSlide(){
 
-            this.inervalTimer = setInterval(this.showNextSlide, 1000);
-        },
-        StopSlide(){
+        //     this.inervalTimer = setInterval(this.showNextSlide, 1000);
+        // },
+        // StopSlide(){
 
-            clearInterval(this.inervalTimer);
-        },
+        //     clearInterval(this.inervalTimer);
+        // },
 
 
         showPrevSlide(){

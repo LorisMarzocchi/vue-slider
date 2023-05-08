@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-		<div class="carousel">
+		<div class="carousel" @mouseenter="pointerIn" @mouseleave="pointerOut">
             <!-- div immagini -->
 			<div class="highlighted">
                 <img
@@ -26,10 +26,14 @@
 			</div>
             <!-- div con le miniature -->
 			<div class="thumbs">
+
 				<div class="controls">
 					<i class="bi bi-arrow-up-circle-fill btn btn-prev" @click="showPrevSlide"></i>
+
                     <i class="bi bi-arrow-down-circle-fill btn btn-next" @click="showNextSlide"></i>
+
 				</div>
+
                 <img
 				    @click="imgClick(index)"
 					v-for="(image, index) in arrImages"
@@ -42,8 +46,8 @@
 
 		</div>
         <div class="containerbtn d-flex justify-content-around">
-            <button @click="StartSlide" class="btn-play align-self-center">Play</button>
-            <button @click="StopSlide" class="btn-stop align-self-center">Stop</button>
+            <button @click="StartSlide" class=" align-self-center">Play</button>
+            <button @click="StopSlide" class=" align-self-center">Stop</button>
         </div>
 
 	</div>
