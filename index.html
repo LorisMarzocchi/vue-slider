@@ -15,6 +15,7 @@
             <!-- div immagini -->
 			<div class="highlighted">
                 <img
+					
 					v-for="(image, index) in arrImages"
 					:key="image"
 					:src="image"
@@ -30,6 +31,7 @@
                     <i class="bi bi-arrow-down-circle-fill btn btn-next" @click="showNextSlide"></i>
 				</div>
                 <img
+				    @click="imgClick(index)"
 					v-for="(image, index) in arrImages"
 					:key="image"
 					:src="image"
@@ -40,8 +42,8 @@
 
 		</div>
         <div class="containerbtn d-flex justify-content-around">
-            <button class="btn-play align-self-center">Play</button>
-            <!-- <button onclick="stopTimeout()" class="btn-stop align-self-center">Stop</button> -->
+            <button @click="StartSlide" class="btn-play align-self-center">Play</button>
+            <button @click="StopSlide" class="btn-stop align-self-center">Stop</button>
         </div>
 
 	</div>

@@ -14,6 +14,9 @@ Consigli del giorno:
 const app =  Vue.createApp({
     data() {
         return {
+            inervalTimer: setInterval(this.showNextSlide, 1000),
+            // stoptime: clearTimeout(showNextSlide, 1000),
+            varBooleana: true,
             activeIndex: 0,
             arrImages: [
                 
@@ -27,6 +30,22 @@ const app =  Vue.createApp({
         };
     },
     methods: {
+        
+        // 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+        imgClick(i){
+			this.activeIndex = i;
+		},
+// interval btn
+        StartSlide(){
+
+            this.inervalTimer = setInterval(this.showNextSlide, 1000);
+        },
+        StopSlide(){
+
+            clearInterval(this.inervalTimer);
+        },
+
+
         showPrevSlide(){
             this.activeIndex--;
             if (this.activeIndex < 0) {
